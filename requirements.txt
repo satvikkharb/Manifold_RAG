@@ -1,0 +1,14 @@
+langchain
+langchain-openai
+langchain-community
+openai
+redis == 5.0.4
+python-dotenv
+redisvl
+langchain_redis
+prometheus_client
+boto3 
+fastapi
+uvicorn
+langchain-text-splitters
+pypdf
