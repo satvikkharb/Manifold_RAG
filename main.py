@@ -14,6 +14,7 @@ from router import build_prompt
 from llm_client import chat as llm_call
 from postprocess import secure_output
 from config import CACHE_TTL, VECTOR_STORE_K
+from guardrails import apply_guardrails
 
 def run_pipeline(question:str)-> str:
     """Run the full RAG pipeline for a given question"""
@@ -45,6 +46,7 @@ def run_pipeline(question:str)-> str:
     
     # Step 5: Post-process response
     final_response = secure_output(raw_response)
+    final_response = apply_guardrails(final_response)
     logging.info(f"Final response after post-processing: {final_response}")
     
     # Step 6: Cache the response
