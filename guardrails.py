@@ -21,8 +21,8 @@ def apply_guardrails(text: str) -> str:
             logger.warning(f"Banned word detected: {word}")
             text = text.replace(word, "BANNED_WORD")
     
-    for pattern,replacement in PII_PATTERNS:
-        text = re.sub(pattern,replacement, text)
+    for _, pattern in PII_PATTERNS.items():
+        text = re.sub(pattern, "[REDACTED]", text)
 
     if original_text != text:
         logger.info(f"Original Text: {original_text}")
