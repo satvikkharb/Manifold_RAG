@@ -12,3 +12,4 @@ fastapi
 uvicorn
 langchain-text-splitters
 pypdf
+prometheus_client
